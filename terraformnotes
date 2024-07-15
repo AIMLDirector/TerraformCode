@@ -165,3 +165,21 @@ terraform plan -var="instance_details=t3.micro"
 Terraform Var file for different Environments.
 
 terraform plan -var-file="prod.tfvars"
+
+vi variables.tf 
+
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
+
+}
+variable "instance_details" {
+  description = "instance type"
+  type        = string
+
+}
+
+vi prod.tfvars
+
+aws_region = "us-east-1"
+instance_details="t2.micro"
