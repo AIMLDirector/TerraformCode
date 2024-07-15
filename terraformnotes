@@ -183,3 +183,31 @@ vi prod.tfvars
 
 aws_region = "us-east-1"
 instance_details="t2.micro"
+
+vi main.tf
+
+provider "aws" {
+  region     = var.aws_region
+  access_key = "Xxxxxx"
+  secret_key = "xxxx"
+
+}
+
+resource "aws_instance" "terraforminstance" {
+  ami           = "ami-06c68f701d8090592"
+  instance_type = var.instance_details
+  tags = {
+
+    Name = "terraforminstance"
+  }
+}
+
+output "aws_instances" {
+ value       = ["${aws_instance.terraforminstance.*.public_ip}"]
+ description = "Public ips of the instances"
+}
+
+output "aws_arn_Number" {
+ value       = ["${aws_instance.terraforminstance.arn}"]
+ description = "arn number "
+}
