@@ -292,12 +292,12 @@ provider "aws" {
 
 Jenkins  or bamboo or concur pipeline  ( Kubernetes & helm & flux & git) 
 
-AWS/Azure/google — 50 % shutdown — costly   —> $ 3.5 M   - services —( finance/ pharmacy & agri)  — technology— slowly migrating to Kubernetes
+
 
 rubrick — backup tool — virtual machine 
  
-PCF - pivotal cloud foundry — containerised product  — 1.5 to 2 M 
-EKS or AKS  - 1M 
+PCF - pivotal cloud foundry — containerised product  
+EKS or AKS  
 Rancher (UI) & Kubernetes — concur pipeline(  - 1M )
 Openshift + Kubernetes — 
-Opensource kubernetes ( 3 virtual or physical machine) —  3/5/7/ —   3 controller 16 workers nodes ( 19)     —  $300K 
+Opensource kubernetes ( 3 virtual or physical machine) —  3/5/7/ —   3 controller 16 workers nodes ( 19) 
