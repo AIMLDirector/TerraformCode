@@ -211,3 +211,93 @@ output "aws_arn_Number" {
  value       = ["${aws_instance.terraforminstance.arn}"]
  description = "arn number "
 }
+
+
+Day -6 07/15/2024
+
+https://github.com/Sankalpjadhav/IaC-Project/blob/master/instance.tf	
+
+
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
+  default     = "us-east-1"
+}
+variable "instance_details" {
+  description = "instance type"
+  type        = string
+  default     = "t2.micro"
+}
+
+									Day 7 - 07/16/2024
+
+
+Modules — 
+
+1. Public modules - register of terraform 
+        1. Providers & partners.  —  preference  — it is verify , it is stable , amount of bug will be minimum or null 
+        2. Open source community
+        3. Individual 
+2. Argument  are used as input while we are creating the resources
+
+After we the resources we get output that output value are called attributes  ( some will similar to arg) output
+
+
+Modules
+1. Readme
+2. main.tf
+3. variables.tf
+4. Output.tf
+5. provider.tf
+
+
+When I am using the module for my resources creations
+1. GitHub
+2. Terraform registory
+3. Local path
+4. http url
+5. Bitbucket
+6. S3 bucket 
+7. 
+8. Private modules —company property modules 
+
+
+ Day -9
+
+terraform plan -var-file="prod.tfvars"  
+export AWS_ACCESS_KEY_ID=""
+export AWS_SECRET_ACCESS_KEY=""
+
+ aws configure
+AWS Access Key ID [None]: xxxxxxx
+AWS Secret Access Key [None]: xxxxxxxx
+Default region name [None]: 
+Default output format [None]: 
+
+ cd .aws
+ ls -al
+total 16
+drwxr-xr-x   4 premkumargontrand  staff   128 Jul 18 06:55 .
+drwxrwxr-x+ 70 premkumargontrand  staff  2240 Jul 18 06:55 ..
+-rw-------   1 premkumargontrand  staff    10 Jul 18 06:55 config
+-rw-------   1 premkumargontrand  staff   116 Jul 18 06:55 credentials
+
+
+provider "aws" {
+  region = var.aws_region
+  shared_config_files      = ["/Users/premkumargontrand/.aws/config"]
+  shared_credentials_files = ["/Users/premkumargontrand/.aws/credentials"]
+}
+
+
+Jenkins  or bamboo or concur pipeline  ( Kubernetes & helm & flux & git) 
+
+AWS/Azure/google — 50 % shutdown — costly   —> $ 3.5 M   - services —( finance/ pharmacy & agri)  — technology— slowly migrating to Kubernetes
+
+rubrick — backup tool — virtual machine 
+ 
+PCF - pivotal cloud foundry — containerised product  — 1.5 to 2 M 
+EKS or AKS  - 1M 
+Rancher (UI) & Kubernetes — concur pipeline(  - 1M )
+Openshift + Kubernetes — 
+Opensource kubernetes ( 3 virtual or physical machine) —  3/5/7/ —   3 controller 16 workers nodes ( 19)     —  $300K 
