@@ -301,3 +301,55 @@ EKS or AKS
 Rancher (UI) & Kubernetes — concur pipeline(  - 1M )
 Openshift + Kubernetes — 
 Opensource kubernetes ( 3 virtual or physical machine) —  3/5/7/ —   3 controller 16 workers nodes ( 19) 
+
+
+
+										Day 10
+
+Provisioners — resources ( aws_instance )
+1. Local exec
+        1. Yum install apache2
+        2. System start apache2
+
+
+2. Remote Exec ( aws_instance)
+
+   1. Connect to machine 
+   2. Provisioning 
+
+
+Real time: 
+ 1. s3 bucket — share bucket
+2. S3fs - shared filesystem — 
+3.  Cd /data/installation  
+
+
+1. Connection — test ssh is enabled or not and verify authentication 
+2.  External world using remote exec
+3. Puppet apply ( ssh it will connect to the puppet server and pull the packages) 
+
+
+
+resource "aws_instance" "terraforminstance" {
+  ami           = "ami-0b72821e2f351e396"
+  instance_type = "t2.micro"
+  key_name      = "terraform"
+
+  connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    private_key = file("./terraform.pem")
+    host     = self.public_ip
+  }
+
+  provisioner "file" {
+    source      = “s3:testbucket::/data/installation/test.sh”
+    destination = "/tmp/test.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/test.sh",
+      "/tmp/test.sh",
+    ]
+  }
