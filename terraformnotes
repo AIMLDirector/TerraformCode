@@ -511,4 +511,7 @@ resource "azurerm_windows_virtual_machine" "appvm" {
 }
 
 
+https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-terraform
+az vm image list
+az vm list-sizes --location southindia
 
